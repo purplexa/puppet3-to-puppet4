@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js – The HTML Presentation Framework</title>
+		<title>Case Study: Puppet 3 to Puppet 4</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="A Puppet Camp Portland 2016 talk by Ryan Whitehurst about the experience of the Puppet Labs systems operations team in migrating from PE 3.2 to PE 2015.2">
+		<meta name="author" content="Ryan Whitehurst">
 
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/theme/puppetlabs.css" id="theme">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -40,339 +40,530 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section>
-					<h1>Reveal.js</h1>
-					<h3>The HTML Presentation Framework</h3>
-					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
-					</p>
-				</section>
+				<section class="opening">
+					<h2>Case Study:</h2>
+					<h1>Puppet 3 to Puppet 4</h1>
+					<h3 class="fluff">by Ryan Whitehurst</h3>
+					<p class="fluff">Source: <a href="https://github.com/thrnio/puppet3-to-puppet4">https://github.com/thrnio/puppet3-to-puppet4</a></p>
 
-				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
-				</section>
+					<aside class="notes" data-markdown>
+						My name is Ryan Whitehurst, and this is a case study on how we at Puppet Labs moved our internal puppet
+						infrastructure from Puppet 3 to Puppet 4.
 
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
-
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
-
-				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
-
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
-
-				<section>
-					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's different types of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section>
-				</section>
-
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=slide#/transitions">Slide</a> -
-						<a href="?transition=convex#/transitions">Convex</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a>
-					</p>
-				</section>
-
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						reveal.js comes with a few themes built in: <br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-					</p>
-				</section>
-
-				<section>
-					<section data-background="#dddddd">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code class="hljs">&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Tiled Backgrounds</h2>
-						<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Backgrounds</h2>
-							<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-						</div>
-					</section>
-					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-						<h2>... and GIFs!</h2>
-					</section>
-				</section>
-
-				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-					</p>
-					<pre><code class="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-				</section>
-
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						You can override background transitions per-slide.
-					</p>
-					<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code class="hljs" data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<h2>Marvelous List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-
-				<section>
-					<h2>Tabular Tables</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Apples</td>
-								<td>$1</td>
-								<td>7</td>
-							</tr>
-							<tr>
-								<td>Lemonade</td>
-								<td>$2</td>
-								<td>18</td>
-							</tr>
-							<tr>
-								<td>Bread</td>
-								<td>$3</td>
-								<td>2</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
-
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+						This presentation is available on my GitHub page. There's the source code for this reveal.js presentation,
+						as well as PDF copies both with and without speaker notes. I'll show the link again at the end as well.
 					</aside>
 				</section>
 
 				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-					<iframe src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+					<h2>Ryan Whitehurst</h2>
+					<h3>SysOps Engineer, Puppet Labs</h3>
+					<table class="terms fluff">
+						<tr>
+							<th>Email</th>
+							<td>rw@puppetlabs.com</td>
+						</tr>
+						<tr>
+							<th>IRC</th>
+							<td>thrnio</td>
+						</tr>
+						<tr>
+							<th>Twitter</th>
+							<td>@thrnio</td>
+						</tr>
+					</table>
 				</section>
 
 				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the page background.
-					</p>
-				</section>
+					<section>
+						<h2>The Plan</h2>
+						<ol class="fragment" data-fragment-index="1">
+							<li class="fragment highlight-red" data-fragment-index="6">Overview</li>
+							<li class="fragment" data-fragment-index="2">Building a test environment</li>
+							<li class="fragment" data-fragment-index="3">Testing catalogs</li>
+							<li class="fragment" data-fragment-index="4">Performance</li>
+							<li class="fragment" data-fragment-index="5">The migration</li>
+						</ol>
+					</section>
 
-				<section data-state="customevent">
-					<h2>State Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
+					<section>
+						<h2>Our infrastructure</h2>
+						<ul>
+							<li>~500 nodes</li>
+							<li>~50 environments</li>
+							<li>~150 public modules</li>
+							<li>~40k lines of custom puppet code per environment</li>
+							<li>~128k total lines of puppet code per environment</li>
+						</ul>
+					</section>
+
+					<section>
+						<img class="stretch" data-src="/images/config_retrieval_comparison.png">
+
+						<aside class="notes" data-markdown>
+							This shows the overall outcome of the transition. It is a comparison chart of the config_retrieval_time
+							between our PE 3.2 infrastructure and our PE 2015.2 infrastructure, as reported by the puppet agent.
+
+							For those who aren't aware, the config_retrieval_time is the time between when the agent requests a
+							catalog and when it receives it, so it is roughly equivalent to the compile time.
+
+							The upper green line is the average time for the PE 3.2 infrastructure, which was erratic but always
+							more than 60 seconds. The lower blue line is the average time for the PE 2015.2 infrastructure, which, as
+							you can see, is much more stable and around 30 seconds, a roughly 50% improvement.
+						</aside>
+					</section>
+
+					<section>
+						<h2>What we did</h2>
+						<ul>
+							<li>PE 3.2 to PE 2015.2</li>
+							<li>Puppet 3.4 to Puppet 4.2</li>
+							<li>PuppetDB 1.x to PuppetDB 3.x</li>
+							<li>Split install to monolithic master of masters</li>
+							<li>Passenger to Puppet Server</li>
+							<li>3x parser to 4x ("future") parser</li>
+							<li>Switch to directory environments</li>
+						</ul>
+
+						<aside class="notes" data-markdown>
+							We made a fairly large jump when we upgraded. There were a number of reasons for this, mostly relating to
+							obscure edge cases we couldn't reliably reproduce that prevented us from running earlier versions.
+
+							We weren't strictly running the 3x parser. We were actually running an early, incomplete version of the
+							future parser. It supported some of the puppet 4 features, but not all of them, and some had changed. This
+							made the upgrade more complicated in many ways.
+						</aside>
+					</section>
 				</section>
 
 				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-					</p>
+					<h2>The Plan</h2>
+					<ol>
+						<li>Overview</li>
+						<li class="current-page">Building a test environment</li>
+						<li>Testing catalogs</li>
+						<li>Performance</li>
+						<li>The migration</li>
+					</ol>
+
+					<aside class="notes"data-markdown>
+						The first step to upgrading puppet for us was to build a test environment. We didn't have an existing test
+						environment for our puppet infrastructure, and we couldn't reliably reproduce our existing environment, so
+						we decided to deploy from scratch.
+					</aside>
 				</section>
 
 				<section>
-					<h2>Much more</h2>
-					<ul>
-						<li>Right-to-left support</li>
-						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
-					</ul>
+					<section>
+						<h2>First attempts</h2>
+						<p class="fragment">Puppet Server crashes... sometimes</p>
+
+						<aside class="notes" data-markdown>
+							Our first attempts to deploy a new version of puppet (at the time, PE 3.7) failed. Puppet Server would
+							crash after a short period of time when we tried to use it, but when we attempted to reproduce it for the
+							engineering team, we couldn't.
+						</aside>
+					</section>
+
+					<section>
+						<h2>Our solution:</h2>
+						<h3 class="fragment">Automate ALL THE THINGS</h3>
+						<p class="fragment">...except automating PE is hard</p>
+
+						<aside class="notes" data-markdown>
+							Our knee-jerk reaction to being unable to reproduce our failure states was to automate every part of the
+							PE deployment, from downloading PE over SSH to templating out an answers file to the PE installer and
+							moving on to automating REST API requests to configure the PE Console.
+
+							This was overkill, wasted time, and was not very useful. We eventually found a balance between documenting
+							each manual step thoroughly and doing most of the configuration with puppet.
+
+							That allowed us to eventually realize that Puppet Server would crash once we deployed our puppet code with
+							r10k, and with help from the support team we were able to identify an edge case performance issue and work
+							around it. More details about performance will come later.
+
+							Eventually, we had PE 2015.2 deployed and stable enough to test against, which led to our next question...
+						</aside>
+					</section>
+
+					<section>
+						<h2>The Puppet CA</h2>
+
+						<aside class="notes" data-markdown>
+							At some point, we were going to need to move nodes to the new stack. It would be convenient if we could
+							move test nodes between the two stacks at will during development. We could re-sign the agent certificate
+							every time we wanted to do this, but that would be a lot of work, so we opted for a solution that would
+							let us use the same agent certificate for both infrastructures.
+						</aside>
+					</section>
+
+					<section>
+						<h2>Duplicate the Puppet CA</h2>
+						<ol>
+							<li class="fragment">delete the SSL directory from the new MoM</li>
+							<li class="fragment">rsync the SSL directory from the old CA to the new MoM</li>
+							<li class="fragment">bump the next serial number by a lot:
+								<code class="newline">/etc/puppetlabs/puppet/ca/serial</code></li>
+							<li class="fragment">reissue all puppet certificates for the new install:
+							<a href="https://docs.puppetlabs.com/puppet/latest/reference/ssl_regenerate_certificates.html" class="newline">https://docs.puppetlabs.com/puppet/latest/reference/ssl_regenerate_certificates.html</a></li>
+						</ol>
+
+						<aside class="notes" data-markdown>
+							We opted to duplicate the CA from the old master to the new master of masters.
+
+							The result was that both the old and new infrastructure could issue certificates.
+						</aside>
+					</section>
+
+					<section>
+						<h2>Problems with CA duplication</h2>
+						<ul>
+							<li>Inaccurate inventory</li>
+							<li>Certificate revocation list divergence</li>
+							<li>Non-contiguous serial numbers</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Other CA options</h2>
+						<ul>
+							<li>Switch to new CA</li>
+							<li>Point new infrastructure at old CA</li>
+							<li>Use a separate SSL directory for testing</li>
+							<li>Use an external CA service</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>The Plan</h2>
+						<ol>
+							<li>Overview</li>
+							<li>Building a test environment</li>
+							<li class="current-page">Testing catalogs</li>
+							<li>Performance</li>
+							<li>The migration</li>
+						</ol>
+
+						<aside class="notes" data-markdown>
+							Like I said before, we were moving from an old version of the 3x future parser to puppet 4, so we needed
+							to test our puppet code to make sure it worked.
+						</aside>
+					</section>
+
+					<section>
+						<h2>The easy way:</h2>
+						<h3><code>catalog_preview</code></h3>
+						<p class="small-link"><a href="https://forge.puppetlabs.com/puppetlabs/catalog_preview">https://forge.puppetlabs.com/puppetlabs/catalog_preview</a></p>
+
+						<aside class="notes" data-markdown>
+							The easy way to test code moving between puppet 3 and puppet 4 is to use the catalog_preview module, which
+							was recently open-sourced after initially being released as a PE-only module.
+
+							The module provides a puppet face that lets you compile catalogs from two different environments for a
+							node, then it compares them and gives you a report on the differences. If you're running puppet 3.8 on
+							your master, then you can use this to see the difference between the 3x parser and the 4x parser. You have
+							to be running 3.8 for this because it was that version where they added the ability to set the `parser`
+							setting in `environment.conf` when using directory environments, which you need.
+
+							Unfortunately, we couldn't use this, for two reasons:
+
+							1. We weren't running puppet 3.8
+							2. We weren't moving from the 3x parser to the 4x parser but from an old future parser to the 4x parser.
+
+							Instead we opted to...
+						</aside>
+					</section>
+
+					<section>
+						<h2>Manually compile catalogs for all nodes</h2>
+					</section>
+
+					<section>
+						<h2>Attempt 1:</h2>
+						<p><code>puppet master --compile</code></p>
+
+						<aside class="notes" data-markdown>
+							Our first attempt at compiling catalogs was to use the `puppet master` face, which can do compilations.
+							Unfortunately, that uses MRI ruby, and we ran into some issues with that where things didn't work quite
+							the same compared to JRuby and Puppet Server.
+						</aside>
+					</section>
+
+					<section>
+						<h2>Attempt 2:</h2>
+						<p><code>POST /puppet/v3/catalog</code></p>
+						<p class="fragment"><span class="fragment strikethrough">cronjob to sync facts cache</span></p>
+						<p class="fragment"><span class="fragment strikethrough">source from PuppetDB</span></p>
+
+						<aside class="notes" data-markdown>
+							Next, we attempted to use Puppet Server's API to request a catalog. However, we needed the facts from the
+							node, otherwise this wasn't going to work.
+
+							First, we hoped to sync the cached YAML files of the facts that the puppet master stores. However, the
+							REST API won't use those.
+
+							Next, we tried pulling the data out of our existing PuppetDB. That also failed because the our older
+							PuppetDB didn't have an easy way to pull out all the fact data we need in the proper form for the API.
+							Newer versions of PuppetDB have a `factsets` endpoint which might make that easier.
+						</aside>
+					</section>
 				</section>
 
-				<section style="text-align: left;">
-					<h1>THE END</h1>
-					<p>
-						- <a href="http://slides.com">Try the online editor</a> <br>
-						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-					</p>
+				<section>
+					<section>
+						<h2>Let the agent request the catalog</h2>
+					</section>
+
+					<section>
+            <pre class="stretch"><code data-trim>
+if $::osfamily != "windows" {
+  cron { 'pe agent':
+    ensure  => present,
+    command => join(['/opt/puppet/bin/puppet agent',
+                     '--no-daemonize --onetime',
+                     ], ' '),
+                   minute  => [fqdn_rand(25), fqdn_rand(25) + 30],
+  }
+
+  cron { 'pe agent noop run':
+    ensure  => present,
+    command => join(['/opt/puppet/bin/puppet agent',
+                     '--test --no-use_srv_records --noop',
+                     '--catalog_cache_terminus=""',
+                     '--server puppet-next.ops.puppetlabs.net;',
+                     '/opt/puppet/bin/puppet plugin download',
+                     ], ' '),
+    minute  => [fqdn_rand(25) + 4, fqdn_rand(25) + 34],
+  }
+}
+            </code></pre>
+						<aside class="notes" data-markdown>
+							We were already using cron to run puppet on everything except Windows because we had some issues with the
+							splay feature of the puppet agent daemon. We realized that we could just add an additional cron job to
+							our puppet code to run the agent with the `--noop` flag against the new infrastructure.
+
+							This is the puppet code we used to test our nodes. We set the noop cron job to run four minutes after the
+							normal run, and immediately after we run `puppet plugin download` to fix our pluginsync, just in case.
+
+							Note the `--catalog_cache_terminus` flag. That wasn't actually present in our cron job. I'll explain why
+							I added it here later.
+						</aside>
+					</section>
+
+					<section>
+						<h2>Making use of data</h2>
+						<ul>
+							<li>PE Console</li>
+							<li>Reports processors</li>
+							<li>PuppetDB</li>
+							<li><code>catalog_preview</code> module</li>
+						</ul>
+
+						<aside class="notes" data-markdown>
+							Once you have catalogs being compiled, you can make use of the data from anywhere you can collect it. You
+							can then use it to fix any code issues from puppet 3 to puppet 4.
+						</aside>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>The Plan</h2>
+						<ol>
+							<li>Overview</li>
+							<li>Building a test environment</li>
+							<li>Testing catalogs</li>
+							<li class="current-page">Performance</li>
+							<li>The migration</li>
+						</ol>
+
+						<aside class="notes" data-markdown>
+							As I mentioned before, performance was a big issue for us, but also a great eventual benefit.
+						</aside>
+					</section>
+
+					<section>
+						<h2>JRuby worker threads</h2>
+						<ul>
+							<li><code>max-active-instances</code></li>
+							<li><code>max-requests-per-instance</code></li>
+							<li><code>environment_timeout</code></li>
+						</ul>
+
+						<aside class="notes" data-markdown>
+							The switch to Puppet Server had a big impact on performance. We found out we needed a large amount more
+							RAM to run Puppet Server, an increase from 4G per node to 32G per node. Now, this is extremely atypical
+							and is the result of how puppet manages code cache and our enormous amount of puppet code.
+
+							Our code takes close to 10G per environment to cache. This meant that we had to carefully balance the
+							number of JRuby worker threads we deployed (`max-active-instances`) with the total JVM heap. At first we
+							tried killing instances with `max-requests-per-instance`, but that led to performance issues, plus one
+							version of Puppet Server had a bug where it never flushed the memory from killed workers.
+
+							We set the `environment_timeout` to 0, which causes puppet to flush the code cache every compilation. This
+							has a small negative performance impact, but it keeps our memory usage reasonable. We'd like to experiment
+							with other JVM tuning settings to see if we can improve things and switch that to the recommended value of
+							`unlimited`, which would improve performance.
+						</aside>
+					</section>
+
+					<section>
+						<h2>PE Console class sync</h2>
+						<p><code>classifier_syncronization_period = 0</code></p>
+
+						<pre><code>
+path /puppet/v3/resource_type
+method find, search
+auth yes
+# start OPS-7229 changes
+# Only allow PE Console to sync class data for the production environment
+environment production
+# end OPS-7229 changes
+allow pe-internal-dashboard, pe-internal-classifier
+						</code></pre>
+
+						<aside class="notes" data-markdown>
+							What ultimately triggered this issue for us was that the PE Console will request a complete list of all
+							classes and their parameters from the master of masters in order to populate autocomplete. With as much
+							code as we had, this caused performance issues for both the PE Console and Puppet Server. We took two
+							actions to resolve this:
+
+							1. We set the classifier_syncronization_period to zero, which disables automatic syncing. The data can
+							   still be synced by manually triggering it from in the web GUI.
+							2. We modified `auth.conf` to block the PE Console from requesting class data from anything other than the
+							   `production` environment.
+
+							The engineering team is currently working on refactoring how this process works to improve performance.
+						</aside>
+					</section>
+
+					<section>
+						<h2>CPU and compile times</h2>
+
+						<aside class="notes" data-markdown>
+							As I showed at the beginning of this presentation, our compile times dropped dramatically. CPU performance
+							was complicated to evaluate because of the way ESXi handles CPU resource allocation, but it seems to have
+							improved as a result of moving to Puppet Server and puppet 4.
+						</aside>
+					</section>
+
+					<section>
+						<h2>Metrics</h2>
+
+						<aside class="notes" data-markdown>
+							We tried enabling the puppetserver built-in metrics system, but it crashed our graphite instance. Based on
+							our environment, it shipped almost 200k metrics each metrics interval. The default is 5 seconds, but even
+							at 1 minute, we were receiving nearly one million metrics per minute. Unfortunately, there's as of now no
+							way to configure individual metrics.
+
+							When we needed to investigate tuning specifics, we enabled JMX metrics and connected JConsole to the JVM
+							server process and manually inspected the metrics. We're currently looking at other ways to get specific
+							metrics out.
+
+							Some metrics are available via various HTTP endpoints, depending on the individual component. Otherwise,
+							everything should be available via JMX, so any standard Java solution that lets you inspect JMX metrics
+							should work.
+						</aside>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>The Plan</h2>
+						<ol>
+							<li>Overview</li>
+							<li>Building a test environment</li>
+							<li>Testing catalogs</li>
+							<li>Performance</li>
+							<li class="current-page">The migration</li>
+						</ol>
+
+						<aside class="notes" data-markdown>
+							Once we had tested all our code, we were ready to actually do the migration.
+						</aside>
+					</section>
+
+					<section>
+						<h2>Things to consider</h2>
+						<ul>
+							<li class="fragment">Service discovery via PuppetDB</li>
+							<li class="fragment">CA switchover</li>
+							<li class="fragment">How to switch the nodes</li>
+							<li class="fragment">Agent version</li>
+						</ul>
+
+						<aside class="notes" data-markdown>
+							Service discovery via PuppetDB, including exported resources or puppetdb_query, can break if you move
+							between separate stacks. Fortunately for us, our `--noop` populated PuppetDB, so we didn't have to worry
+							about that.
+
+							CA switchover was also not a problem because we duplicated the CA, but if we had done something different,
+							we would have had to figure out how to manage that.
+
+							For us, all our nodes were pointed at a CNAME, which made the switch as easy as pointing the CNAME at a
+							new node. If that were not the case, we would have had to push new code that would reconfigure settings in
+							`puppet.conf` to point the nodes at the new master.
+
+							We were running the puppet 3.8 agent because it works with both puppet 3 and puppet 4. I think it's only
+							explicitly supported with puppet 3.8 and puppet 4.2, but we were able to run it against puppet 3.4.3
+							without any major issues.
+						</aside>
+					</section>
+
+					<section>
+						<h2>Two days before our migration...</h2>
+
+						<aside class="notes" data-markdown>
+							The migration was scheduled for a Wednesday, the day after PE 2015.3 released. Two days before that,
+							Monday, a few people mentioned their nodes running against the new infrastructure unexpectedly. At first,
+							we dismissed it as someone testing nodes and forgetting to switch back, but later in the day we realized
+							that about a quarter of our nodes were running against the new infrastructure., many of them being
+							production which should not have been switched over yet.
+
+							Turns out, the Friday before, I had reissued the certificates for our old puppet infrastructure so that it
+							would be accessible from an alternate CNAME (puppet-legacy. instead of puppet.). I did this one master at
+							a time so as to avoid a service outage, but on one of them I accidentally issued a certificate without any
+							DNS alt names and put it back into the LB pool for a few minutes. Any node which got routed to that server
+							failed to retrieve a catalog and used the cached catalog.
+
+							Now, note that within our puppet code, we had logic to switch some of the code based on the compiling
+							master's version. Catalogs compiled against the new infrastructure would configure `puppet.conf` to point
+							at the new infrastructure, and catalogs compiled against the old infrastructure would configure
+							`puppet.conf` to point at the old infrastructure.
+
+							Due to the way we tested, the cached catalog was from the noop runs... which meant all those nodes
+							switched to the new puppet infrastructure. So, we had almost a quarter of our nodes migrate to the new
+							infrastructure 5 days early... and we didn't notice for 3 days. I'd call that a successful migration.
+						</aside>
+					</section>
+
+					<section>
+						<h2>Don't cache <code>--noop</code> catalogs</h2>
+						<p><code class="newline">puppet agent -t --noop --catalog_cache_terminus=''</code></p>
+
+						<aside class="notes" data-markdown>
+							You may remember that I mentioned the `catalog_cache_terminus` flag as something I included in the code I
+							showed but wasn't in our original code. This is why. After this incident, I learned of this flag to
+							prevent puppet from caching the catalog.
+
+							This issue is fixed in `master`, but there's no published agent version with that fix yet, and of course
+							it won't be present in any old versions.
+						</aside>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p>Overall outcome:</p>
+						<h2>SUCCESS!</h2>
+					</section>
+
+					<section>
+						<h2>Questions?</h2>
+
+						<p class="fluff">Source: <a href="https://github.com/thrnio/puppet3-to-puppet4">https://github.com/thrnio/puppet3-to-puppet4</a></p>
+					</section>
 				</section>
 
 			</div>
@@ -387,7 +578,7 @@ Reveal.addEventListener( 'customevent', function() {
 			// Full list of configuration options available at:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: true,
+				controls: false,
 				progress: true,
 				history: true,
 				center: true,

@@ -1,0 +1,115 @@
+/**
+ * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ *
+ * Copyright (C) 2015 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(../../lib/font/source-sans-pro/source-sans-pro.css);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic|Arvo:400,400italic,700,700italic);
+
+@mixin bodyBackground() {
+	@include radial-gradient( #1d1c32, #23213e );
+	background-image: url(/images/puppetlabs-logo.svg);
+	background-repeat: no-repeat;
+	background-size: 6%;
+	background-position: center $blockMargin*2;
+}
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #1d1c32;
+
+$mainColor: #fff;
+$headingColor: #fff;
+
+$highlightRed: #d93129;
+$highlightGreen: #79c145;
+$highlightBlue: #00adc6;
+
+$mainFontSize: 38px;
+$mainFont: 'PT Sans', Helvetica, sans-serif;
+$headingFont: 'Arvo', Georgia, serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: normal;
+$headingFontWeight: 400;
+$linkColor: #00adc6;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+section.has-light-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: #222;
+	}
+}
+
+// Opening slide
+section.opening {
+	h2 {
+		margin: 0;
+	}
+}
+
+// General styles
+.reveal section img.stretch,
+.reveal section pre.stretch {
+	margin-top: 10%;
+}
+
+.reveal code {
+	font-size: 0.9em;
+}
+
+dl {
+	dt, dd {
+		display: inline-block;
+	}
+}
+
+.reveal section .fluff {
+	margin-top: $blockMargin * 3;
+}
+
+.reveal table.terms {
+	&, tr, th, td {
+		border-width: 0;
+	}
+}
+
+.current-page {
+	color: $highlightRed;
+}
+
+code.newline {
+	display: block;
+	font-size: 0.75em;
+}
+
+a.newline {
+	display: block;
+	font-size: 0.6em;
+}
+
+.reveal .slides section .fragment.strikethrough {
+	opacity: 1;
+	visibility: visible;
+
+	&.visible {
+		text-decoration: line-through;
+	}
+}
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
