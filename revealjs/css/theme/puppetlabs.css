@@ -13,7 +13,8 @@ section.opening h2 {
 
 .reveal section img.stretch,
 .reveal section pre.stretch {
-  margin-top: 10%; }
+  margin-top: 10%;
+  max-width: 95%; }
 
 .reveal code {
   font-size: 0.9em; }
