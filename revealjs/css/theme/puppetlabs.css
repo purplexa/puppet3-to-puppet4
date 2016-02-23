@@ -11,10 +11,18 @@ section.has-light-background, section.has-light-background h1, section.has-light
 section.opening h2 {
   margin: 0; }
 
-.reveal section img.stretch,
-.reveal section pre.stretch {
-  margin-top: 10%;
-  max-width: 95%; }
+@media screen {
+  .reveal section img.stretch,
+  .reveal section pre.stretch {
+    margin-top: 10%; } }
+
+@media print {
+  .reveal section img.stretch {
+    display: inline-block;
+    margin: 0 auto;
+    vertical-align: center;
+    max-height: 80%;
+    max-width: 95%; } }
 
 .reveal code {
   font-size: 0.9em; }

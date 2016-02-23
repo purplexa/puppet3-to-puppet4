@@ -63,10 +63,21 @@ section.opening {
 }
 
 // General styles
-.reveal section img.stretch,
-.reveal section pre.stretch {
-	margin-top: 10%;
-	max-width: 95%;
+@media screen {
+	.reveal section img.stretch,
+	.reveal section pre.stretch {
+		margin-top: 10%;
+	}
+}
+
+@media print {
+	.reveal section img.stretch {
+		display: inline-block;
+		margin: 0 auto;
+		vertical-align: center;
+		max-height: 80%;
+		max-width: 95%;
+	}
 }
 
 .reveal code {
